@@ -7,10 +7,12 @@
         
         <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
         
-        <title th:insert="fragments/fragments :: title('Paolo Fabris')" />
+        <title>Movies</title>
     </head>
     <body>
         <h1 th:insert="fragments/fragments :: title('Paolo Fabris')" />
+
+        <div th:replace="fragments/fragments :: song" />
         
         
 

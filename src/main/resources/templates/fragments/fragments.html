@@ -1,12 +1,46 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+
 </head>
+
 <body>
-    <th:block th:fragment="title(titolo)" th:text="'Best of the year by ' + ${titolo}"/>
-    
+    <th:block th:fragment="title(titolo)" th:text="'Best of the year by ' + ${titolo}" />
+    <th:block th:fragment="film">
+        <table>
+            <tr>
+                <th>ID</th>
+                <th></th>
+                <th>Titolo</th>
+            </tr>
+            <tr th:each="film : ${films}">
+                <td th:text="${film.getId()}    "></td>
+                <td></td>
+                <td th:text="${film.getTitle()}"></td>
+
+            </tr>
+        </table>
+    </th:block>
+    <th:block th:fragment="song">
+        <table>
+            <tr>
+                <th>ID</th>
+                <th></th>
+                <th>Titolo</th>
+            </tr>
+            <tr th:each="song : ${songs}">
+                <td th:text="${song.getId()}    "></td>
+                <td></td>
+                <td th:text="${song.getTitle()}"></td>
+
+            </tr>
+        </table>
+    </th:block>
+
 </body>
+
 </html>
