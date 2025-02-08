@@ -1,6 +1,7 @@
 package com.example.best_of_the_year.controller;
 
 import java.util.ArrayList;
+import java.util.function.*;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -52,14 +53,22 @@ public class controller {
 
     @GetMapping("/Movies/{id}")
     public String MoviesId(@PathVariable String id, Model model) {
-        model.addAttribute(id);
+        if (UtilFunctions.existMovies(moviesList, id)) {
+            model.addAttribute("id", id);
+        } else {
+            model.addAttribute("id", "false");
+        }
         model.addAttribute("films", getBestMovies());
         return "moviesId";
     }
 
     @GetMapping("/Songs/{id}")
     public String SongsId(@PathVariable String id, Model model) {
-        model.addAttribute(id);
+        if (UtilFunctions.existSongs(songsList, id)) {
+            model.addAttribute("id", id);
+        } else {
+            model.addAttribute("id", "false");
+        }
         model.addAttribute("songs", getBestSongs());
         return "songsId";
     }
