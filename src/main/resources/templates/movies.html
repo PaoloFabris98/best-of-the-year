@@ -15,13 +15,12 @@
     <div class="container">
         <div class="row">
             <div class="col ">
-                <h1 th:insert="~{fragments/fragments :: title('Paolo Fabris')}" />
+                <h1 th:insert="~{fragments/fragments :: title('Paolo Fabris')}"></h1>
             </div>
+                
         </div>
-        <div th:replace="~{fragments/fragments :: cards('movies')}" />
+        <div th:insert="~{fragments/card :: card('movies')}"></div>
 
-
-    </div>
     </div>
     <script th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
 </body>

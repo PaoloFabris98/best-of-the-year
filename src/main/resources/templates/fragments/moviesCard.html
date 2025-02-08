@@ -9,50 +9,6 @@
 </head>
 
 <body>
-    <h1 th:fragment="title(titolo)" th:text="'Best of the year by ' + ${titolo}"></h1>
-    <th:block th:fragment="film">
-        <table>
-            <tr class="text-center">
-                <th>ID</th>
-                <th> </th>
-                <th> </th>
-                <th>Titolo</th>
-            </tr>
-            <tr class="text-center" th:each="film : ${films} ">
-                <td th:text="${film.getId()}"></td>
-                <th></th>
-                <th></th>
-                <td th:text="${film.getTitle()}"></td>
-
-            </tr>
-        </table>
-    </th:block>
-    <th:block th:fragment="song" class="">
-        <table class="text-center">
-            <tr>
-                <th>ID</th>
-                <th></th>
-                <th></th>
-                <th>Titolo</th>
-            </tr>
-            <tr class="text-center" th:each="song : ${songs}">
-                <td th:text="${song.getId()}"></td>
-                <th></th>
-                <th></th>
-                <td th:text="${song.getTitle()}"></td>
-
-            </tr>
-        </table>
-    </th:block>
-
-    <a th:fragment="buttons(link, titolo)" th:href="@{${link}}" th:text="${titolo}"
-        class="btn btn-outline-secondary"></a>
-
-
-
-
-
-
     <th:block th:fragment="card(page)">
         <div class="card m-0 p-0" style="width: 18rem;">
             <div class="card-header">
@@ -82,10 +38,9 @@
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">
                     <div class="container">
-                        <div class="row justify-content-center text-center" th:if="${page == 'index'}">
-
+                        <div class="row justify-content-center text-center">
                             <div class="col-12">
-                                <p>Best of by ...</p>
+                                <p th:text="${id}"></p>
                             </div>
                             <div class="col-12">
                                 <img src="https://plus.unsplash.com/premium_photo-1668091148044-056cd744e64a?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8c2ZvbmRvJTIwY2llbG98ZW58MHx8MHx8fDA%3D"
@@ -97,35 +52,11 @@
                                 facere quibusdam odio minima error alias?
                             </div>
                         </div>
-                        <div class="row justify-content-center text-center" th:if="${page == 'movies'}">
-                            <table>
-                                <tr class="text-center" th:each="film : ${films} ">
-                                    <div class="col-12 mt-2">
-                                        <td class="col-12 mt-2"
-                                            th:replace="~{fragments/fragments :: buttons('/Movies/${film.getTitle()}', ${film.getTitle()})}" />
-                                    </div>
-                                </tr>
-                            </table>
-                        </div>
-                        <div class="row justify-content-center text-center" th:if="${page == 'songs'}">
-
-                            <table>
-                                <tr class="text-center" th:each="song : ${songs}">
-                                    <div class="col-12 mt-2">
-                                        <td class="col-12 mt-2"
-                                            th:replace="~{fragments/fragments :: buttons('/Songs/${song.getTitle()}', ${song.getTitle()})}" />
-                                    </div>
-                                </tr>
-                            </table>
-                        </div>
                     </div>
                 </li>
             </ul>
         </div>
     </th:block>
-    
-
-
 </body>
 
 </html>

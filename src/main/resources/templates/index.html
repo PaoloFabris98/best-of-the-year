@@ -13,11 +13,8 @@
 
 <body class="container">
     <h1 th:insert="~{fragments/fragments :: title('Paolo Fabris')}" />
-    <div th:replace="~{fragments/fragments :: cards('index')}" />
+    <div th:replace="~{fragments/card :: card('index')}" />
     
-
-
-
     <script th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
 </body>
 

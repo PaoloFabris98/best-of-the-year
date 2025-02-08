@@ -9,50 +9,6 @@
 </head>
 
 <body>
-    <h1 th:fragment="title(titolo)" th:text="'Best of the year by ' + ${titolo}"></h1>
-    <th:block th:fragment="film">
-        <table>
-            <tr class="text-center">
-                <th>ID</th>
-                <th> </th>
-                <th> </th>
-                <th>Titolo</th>
-            </tr>
-            <tr class="text-center" th:each="film : ${films} ">
-                <td th:text="${film.getId()}"></td>
-                <th></th>
-                <th></th>
-                <td th:text="${film.getTitle()}"></td>
-
-            </tr>
-        </table>
-    </th:block>
-    <th:block th:fragment="song" class="">
-        <table class="text-center">
-            <tr>
-                <th>ID</th>
-                <th></th>
-                <th></th>
-                <th>Titolo</th>
-            </tr>
-            <tr class="text-center" th:each="song : ${songs}">
-                <td th:text="${song.getId()}"></td>
-                <th></th>
-                <th></th>
-                <td th:text="${song.getTitle()}"></td>
-
-            </tr>
-        </table>
-    </th:block>
-
-    <a th:fragment="buttons(link, titolo)" th:href="@{${link}}" th:text="${titolo}"
-        class="btn btn-outline-secondary"></a>
-
-
-
-
-
-
     <th:block th:fragment="card(page)">
         <div class="card m-0 p-0" style="width: 18rem;">
             <div class="card-header">
@@ -102,7 +58,7 @@
                                 <tr class="text-center" th:each="film : ${films} ">
                                     <div class="col-12 mt-2">
                                         <td class="col-12 mt-2"
-                                            th:replace="~{fragments/fragments :: buttons('/Movies/${film.getTitle()}', ${film.getTitle()})}" />
+                                            th:replace="~{fragments/fragments :: buttons('/Movies/' + ${film.getTitle()}, ${film.getTitle()})}" />
                                     </div>
                                 </tr>
                             </table>
@@ -113,7 +69,7 @@
                                 <tr class="text-center" th:each="song : ${songs}">
                                     <div class="col-12 mt-2">
                                         <td class="col-12 mt-2"
-                                            th:replace="~{fragments/fragments :: buttons('/Songs/${song.getTitle()}', ${song.getTitle()})}" />
+                                            th:replace="~{fragments/fragments :: buttons('/Songs/' + ${song.getTitle()}, ${song.getTitle()})}" />
                                     </div>
                                 </tr>
                             </table>
@@ -123,9 +79,6 @@
             </ul>
         </div>
     </th:block>
-    
-
-
 </body>
 
 </html>
