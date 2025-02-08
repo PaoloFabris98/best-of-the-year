@@ -24,24 +24,38 @@ public class controller {
 
     @GetMapping("/Movies")
     public String Movies(Model model) {
-        moviesList.add(new Movies(1, "Inception"));
-        moviesList.add(new Movies(2, "The Dark Knight"));
-        moviesList.add(new Movies(3, "Interstellar"));
-        moviesList.add(new Movies(4, "The Godfather"));
-        moviesList.add(new Movies(5, "Pulp Fiction"));
+        if (moviesList.size() <= 0) {
+            moviesList.add(new Movies(1, "Inception"));
+            moviesList.add(new Movies(2, "The Dark Knight"));
+            moviesList.add(new Movies(3, "Interstellar"));
+            moviesList.add(new Movies(4, "The Godfather"));
+            moviesList.add(new Movies(5, "Pulp Fiction"));
+        }
         model.addAttribute("films", getBestMovies());
         return "movies";
     }
 
     @GetMapping("/Songs")
     public String Songs(Model model) {
-        songsList.add(new Songs(1, "Bohemian Rhapsody"));
-        songsList.add(new Songs(2, "Stairway to Heaven"));
-        songsList.add(new Songs(3, "Hotel California"));
-        songsList.add(new Songs(4, "Imagine"));
-        songsList.add(new Songs(5, "Smells Like Teen Spirit"));
+        if (songsList.size() <= 0) {
+            songsList.add(new Songs(1, "Bohemian Rhapsody"));
+            songsList.add(new Songs(2, "Stairway to Heaven"));
+            songsList.add(new Songs(3, "Hotel California"));
+            songsList.add(new Songs(4, "Imagine"));
+            songsList.add(new Songs(5, "Smells Like Teen Spirit"));
+        }
         model.addAttribute("songs", getBestSongs());
         return "songs";
+    }
+
+    public String MoviesId(Model model) {
+        model.addAttribute("films", getBestMovies());
+        return "moviesId";
+    }
+
+    public String SongsId(Model model) {
+        model.addAttribute("songs", getBestSongs());
+        return "songsId";
     }
 
     private ArrayList<Movies> getBestMovies() {

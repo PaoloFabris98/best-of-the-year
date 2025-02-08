@@ -7,16 +7,18 @@
         
         <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
         
-        <title>Movies</title>
+        <title>Songs</title>
     </head>
     <body>
-        <h1 th:insert="fragments/fragments :: title('Paolo Fabris')" />
+        <div class="container">
+            <div class="row">
+                <div class="col ">
+                    <h1 th:insert="~{fragments/fragments :: title('Paolo Fabris')}" />
+                </div>
+            </div>
 
-        <div th:replace="fragments/fragments :: song" />
+        <div th:replace="~{fragments/fragments :: cards('songs')}" />
         
-        
-
-
         <script th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
     </body>
 </html>
