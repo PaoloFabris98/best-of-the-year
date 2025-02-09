@@ -11,13 +11,14 @@
     <title th:text="${id}"></title>
 </head>
 
-<body>
-    <div class="container">
-        <h1 th:insert="~{fragments/fragments :: title('Paolo Fabris')}" />
+<body class="bg-dark">
+    <div class="container bg-white">
+        <div th:replace="~{fragments/NavBar :: NavBar}"></div>
 
         <div th:insert="~{fragments/moviesCard :: card('movies')}"></div>
-
     </div>
+
+
     <script th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
 </body>
 

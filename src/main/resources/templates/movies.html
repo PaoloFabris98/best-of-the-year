@@ -11,18 +11,12 @@
     <title>Movies</title>
 </head>
 
-<body>
-    <div class="container d-flex justify-content-center ">
-        <div class="row">
-            <div class="col-12 justify-content-center">
-                <h1 th:insert="~{fragments/fragments :: title('Paolo Fabris')}"></h1>
-            </div>
-            <div class="col-12">
-                <div th:insert="~{fragments/card :: card('movies')}"></div>
-            </div>
-                
-        </div>
-        
+<body class="bg-dark">
+    <div class="container bg-white">
+        <div th:replace="~{fragments/NavBar :: NavBar}"></div>
+        <div th:insert="~{fragments/card :: card('movies')}"></div>
+
+
 
     </div>
     <script th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
