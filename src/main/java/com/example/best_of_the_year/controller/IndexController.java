@@ -1,7 +1,6 @@
 package com.example.best_of_the_year.controller;
 
 import java.util.ArrayList;
-import java.util.function.*;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,7 +12,7 @@ import com.example.best_of_the_year.java.*;
 
 @Controller
 @RequestMapping("/")
-public class controller {
+public class IndexController {
 
     protected ArrayList<Movies> moviesList = new ArrayList<>();
     protected ArrayList<Songs> songsList = new ArrayList<>();
