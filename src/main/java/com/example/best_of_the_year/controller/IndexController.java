@@ -17,7 +17,6 @@ public class IndexController {
     private ArrayList<Movies> moviesList = new ArrayList<>();
     private ArrayList<Songs> songsList = new ArrayList<>();
 
-    @Autowired
     public IndexController() {
         if (this.moviesList.size() == 0) {
             this.moviesList.add(new Movies(1, "Inception"));
