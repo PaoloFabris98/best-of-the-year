@@ -26,26 +26,12 @@ public class IndexController {
 
     @GetMapping("/Movies")
     public String Movies(Model model) {
-        if (moviesList.size() <= 0) {
-            moviesList.add(new Movies(1, "Inception"));
-            moviesList.add(new Movies(2, "TheDarkKnight"));
-            moviesList.add(new Movies(3, "Interstellar"));
-            moviesList.add(new Movies(4, "TheGodfather"));
-            moviesList.add(new Movies(5, "PulpFiction"));
-        }
         model.addAttribute("films", getBestMovies());
         return "movies";
     }
 
     @GetMapping("/Songs")
     public String Songs(Model model) {
-        if (songsList.size() <= 0) {
-            songsList.add(new Songs(1, "BohemianRhapsody"));
-            songsList.add(new Songs(2, "StairwaytoHeaven"));
-            songsList.add(new Songs(3, "HotelCalifornia"));
-            songsList.add(new Songs(4, "Imagine"));
-            songsList.add(new Songs(5, "SmellsLikeTeenSpirit"));
-        }
         model.addAttribute("songs", getBestSongs());
         return "songs";
     }
@@ -73,10 +59,24 @@ public class IndexController {
     }
 
     private ArrayList<Movies> getBestMovies() {
+        if (moviesList.size() <= 0) {
+            moviesList.add(new Movies(1, "Inception"));
+            moviesList.add(new Movies(2, "TheDarkKnight"));
+            moviesList.add(new Movies(3, "Interstellar"));
+            moviesList.add(new Movies(4, "TheGodfather"));
+            moviesList.add(new Movies(5, "PulpFiction"));
+        }
         return this.moviesList;
     }
 
     private ArrayList<Songs> getBestSongs() {
+        if (songsList.size() <= 0) {
+            songsList.add(new Songs(1, "BohemianRhapsody"));
+            songsList.add(new Songs(2, "StairwaytoHeaven"));
+            songsList.add(new Songs(3, "HotelCalifornia"));
+            songsList.add(new Songs(4, "Imagine"));
+            songsList.add(new Songs(5, "SmellsLikeTeenSpirit"));
+        }
         return this.songsList;
     }
 
