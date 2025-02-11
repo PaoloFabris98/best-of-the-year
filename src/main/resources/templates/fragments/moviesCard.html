@@ -20,19 +20,19 @@
                         <div class="col-8">
                             <div class="row text-center" th:if="${page == 'index'}">
                                 <div class="col-6 mt-2"
-                                    th:insert="~{fragments/fragments :: buttons('/Movies', 'Movies')}" />
+                                    th:insert="~{fragments/fragments :: buttons('/movies', 'movies')}" />
                                 <div class="col-6 mt-2"
-                                    th:insert="~{fragments/fragments :: buttons('/Songs', 'Songs')}" />
+                                    th:insert="~{fragments/fragments :: buttons('/songs', 'songs')}" />
                             </div>
                             <div class="row text-center" th:if="${page == 'movies'}">
-                                <div class="col-6 mt-2" th:insert="~{fragments/fragments :: buttons('/', 'Index')}" />
+                                <div class="col-6 mt-2" th:insert="~{fragments/fragments :: buttons('/', 'index')}" />
                                 <div class="col-6 mt-2"
-                                    th:insert="~{fragments/fragments :: buttons('/Songs', 'Songs')}" />
+                                    th:insert="~{fragments/fragments :: buttons('/songs', 'songs')}" />
                             </div>
                             <div class="row text-center" th:if="${page == 'songs'}">
-                                <div class="col-6 mt-2" th:insert="~{fragments/fragments :: buttons('/', 'Index')}" />
+                                <div class="col-6 mt-2" th:insert="~{fragments/fragments :: buttons('/', 'index')}" />
                                 <div class="col-6 mt-2"
-                                    th:insert="~{fragments/fragments :: buttons('/Movies', 'Movies')}" />
+                                    th:insert="~{fragments/fragments :: buttons('/movies', 'movies')}" />
 
                             </div>
                         </div>
