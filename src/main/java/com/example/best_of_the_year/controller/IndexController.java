@@ -58,23 +58,23 @@ public class IndexController {
 
     private ArrayList<Movies> getBestMovies() {
 
-        if (moviesList.size() == 0) {
-            moviesList.add(new Movies(1, "Inception"));
-            moviesList.add(new Movies(2, "TheDarkKnight"));
-            moviesList.add(new Movies(3, "Interstellar"));
-            moviesList.add(new Movies(4, "TheGodfather"));
-            moviesList.add(new Movies(5, "PulpFiction"));
+        if (this.moviesList.size() == 0) {
+            this.moviesList.add(new Movies(1, "Inception"));
+            this.moviesList.add(new Movies(2, "TheDarkKnight"));
+            this.moviesList.add(new Movies(3, "Interstellar"));
+            this.moviesList.add(new Movies(4, "TheGodfather"));
+            this.moviesList.add(new Movies(5, "PulpFiction"));
         }
         return this.moviesList;
     }
 
     private ArrayList<Songs> getBestSongs() {
-        if (songsList.size() == 0) {
-            songsList.add(new Songs(1, "BohemianRhapsody"));
-            songsList.add(new Songs(2, "StairwaytoHeaven"));
-            songsList.add(new Songs(3, "HotelCalifornia"));
-            songsList.add(new Songs(4, "Imagine"));
-            songsList.add(new Songs(5, "SmellsLikeTeenSpirit"));
+        if (this.songsList.size() == 0) {
+            this.songsList.add(new Songs(1, "BohemianRhapsody"));
+            this.songsList.add(new Songs(2, "StairwaytoHeaven"));
+            this.songsList.add(new Songs(3, "HotelCalifornia"));
+            this.songsList.add(new Songs(4, "Imagine"));
+            this.songsList.add(new Songs(5, "SmellsLikeTeenSpirit"));
         }
         return this.songsList;
     }
