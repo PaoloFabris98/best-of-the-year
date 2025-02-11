@@ -2,6 +2,7 @@ package com.example.best_of_the_year.controller;
 
 import java.util.ArrayList;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +16,24 @@ import com.example.best_of_the_year.java.*;
 public class IndexController {
     private ArrayList<Movies> moviesList = new ArrayList<>();
     private ArrayList<Songs> songsList = new ArrayList<>();
+
+    @Autowired
+    public IndexController() {
+        if (this.moviesList.size() == 0) {
+            this.moviesList.add(new Movies(1, "Inception"));
+            this.moviesList.add(new Movies(2, "TheDarkKnight"));
+            this.moviesList.add(new Movies(3, "Interstellar"));
+            this.moviesList.add(new Movies(4, "TheGodfather"));
+            this.moviesList.add(new Movies(5, "PulpFiction"));
+        }
+        if (this.songsList.size() == 0) {
+            this.songsList.add(new Songs(1, "BohemianRhapsody"));
+            this.songsList.add(new Songs(2, "StairwaytoHeaven"));
+            this.songsList.add(new Songs(3, "HotelCalifornia"));
+            this.songsList.add(new Songs(4, "Imagine"));
+            this.songsList.add(new Songs(5, "SmellsLikeTeenSpirit"));
+        }
+    }
 
     @GetMapping("/")
     public String index(Model model) {
@@ -58,24 +77,11 @@ public class IndexController {
 
     private ArrayList<Movies> getBestMovies() {
 
-        if (this.moviesList.size() == 0) {
-            this.moviesList.add(new Movies(1, "Inception"));
-            this.moviesList.add(new Movies(2, "TheDarkKnight"));
-            this.moviesList.add(new Movies(3, "Interstellar"));
-            this.moviesList.add(new Movies(4, "TheGodfather"));
-            this.moviesList.add(new Movies(5, "PulpFiction"));
-        }
         return this.moviesList;
     }
 
     private ArrayList<Songs> getBestSongs() {
-        if (this.songsList.size() == 0) {
-            this.songsList.add(new Songs(1, "BohemianRhapsody"));
-            this.songsList.add(new Songs(2, "StairwaytoHeaven"));
-            this.songsList.add(new Songs(3, "HotelCalifornia"));
-            this.songsList.add(new Songs(4, "Imagine"));
-            this.songsList.add(new Songs(5, "SmellsLikeTeenSpirit"));
-        }
+
         return this.songsList;
     }
 
