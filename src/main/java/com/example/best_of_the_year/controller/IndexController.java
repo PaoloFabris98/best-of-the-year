@@ -23,19 +23,19 @@ public class IndexController {
     }
 
     @GetMapping("/movies")
-    public String Movies(Model model) {
+    public String movies(Model model) {
         model.addAttribute("films", getBestMovies());
         return "movies";
     }
 
     @GetMapping("/songs")
-    public String Songs(Model model) {
+    public String songs(Model model) {
         model.addAttribute("songs", getBestSongs());
         return "songs";
     }
 
     @GetMapping("/movies/{id}")
-    public String MoviesId(@PathVariable String id, Model model) {
+    public String moviesId(@PathVariable String id, Model model) {
         if (UtilFunctions.existMovies(moviesList, id)) {
             model.addAttribute("id", id);
         } else {
@@ -46,7 +46,7 @@ public class IndexController {
     }
 
     @GetMapping("/songs/{id}")
-    public String SongsId(@PathVariable String id, Model model) {
+    public String songsId(@PathVariable String id, Model model) {
         if (UtilFunctions.existSongs(songsList, id)) {
             model.addAttribute("id", id);
         } else {
