@@ -13,10 +13,8 @@ import com.example.best_of_the_year.java.*;
 @Controller
 @RequestMapping("/")
 public class IndexController {
-
-    protected ArrayList<Movies> moviesList = new ArrayList<>();
-    protected ArrayList<Songs> songsList = new ArrayList<>();
-    protected String titolo;
+    private ArrayList<Movies> moviesList = new ArrayList<>();
+    private ArrayList<Songs> songsList = new ArrayList<>();
 
     @GetMapping("/")
     public String index(Model model) {
@@ -59,7 +57,8 @@ public class IndexController {
     }
 
     private ArrayList<Movies> getBestMovies() {
-        if (moviesList.size() <= 0) {
+
+        if (moviesList.size() == 0) {
             moviesList.add(new Movies(1, "Inception"));
             moviesList.add(new Movies(2, "TheDarkKnight"));
             moviesList.add(new Movies(3, "Interstellar"));
@@ -70,7 +69,7 @@ public class IndexController {
     }
 
     private ArrayList<Songs> getBestSongs() {
-        if (songsList.size() <= 0) {
+        if (songsList.size() == 0) {
             songsList.add(new Songs(1, "BohemianRhapsody"));
             songsList.add(new Songs(2, "StairwaytoHeaven"));
             songsList.add(new Songs(3, "HotelCalifornia"));
